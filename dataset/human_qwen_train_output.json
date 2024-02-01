@@ -1,0 +1,483 @@
+[
+  {
+    "id": "0",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a line segment from point (4, 2, 23) to (-100, 50, 0) and add it to the viewport. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateXSegmentUsingFromFunction()\n{\n    // Directly create a segment using the static From function of XSegment3d\n    XSegment3d seg = XSegment3d::From(4, 2, 23, -100, 50, 0);\n\n    // Add the segment to the viewport\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateLine(seg));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "1",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a line segment from point (-43, 10, 54) to (-10, 50, 32) and add it to the viewport. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateXSegmentUsingInitMethod()\n{\n    // Initialize a segment using the Init member function\n    XSegment3d seg;\n    seg.Init(-43, 10, 54, -10, 50, 32);\n\n    // Add the segment to the viewport\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateLine(seg));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a line segment from point (445, -154, 6) to (40, 0, 34) and add it to the viewport. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateXSegmentUsingFromFunctions()\n{\n    // First, create the start and end points using XPoint3d::From\n    XPoint3d st = XPoint3d::From(445, -154, 6);\n    XPoint3d ed = XPoint3d::From(40, 0, 34);\n\n    // Then, create the segment using XSegment3d::From\n    XSegment3d seg = XSegment3d::From(st, ed);\n\n    // Add the segment to the viewport\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateLine(seg));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a line segment from point (0, -10, 0) to (-100, 50, 0) and add it to the viewport. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateXSegmentUsingInitWithPoints()\n{\n    // Initialize points using regular constructor\n    XPoint3d st(0, -10, 0);\n    XPoint3d ed(-100, 50, 0);\n\n    // Declare a segment and initialize it with Init function\n    XSegment3d seg;\n    seg.Init(st, ed);\n\n    // Add the segment to the viewport\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateLine(seg));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a line segment from point (2, -10, 5) to (-100, -50, 0) and add it to the viewport. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateXSegmentUsingSetMethods()\n{\n    // Create an XSegment3d object\n    XSegment3d seg;\n\n    // Set the start point\n    seg.SetStartPoint(XPoint3d::From(2, -10, 5));\n\n    // Set the end point\n    seg.SetEndPoint(XPoint3d::From(-100, -50, 0));\n\n    // Add the segment to the viewport\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateLine(seg));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a line segment from point (-10, -10, 0) to (-110, 40, 0) and add it to the viewport. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateXSegmentUsingInitFromOriginAndDirection()\n{\n    // Define origin and a direction vector for the segment\n    XPoint3d origin = XPoint3d::From(-10, -10, 0);\n    XPoint3d direction = XPoint3d::From(-100, 50, 0);\n\n    // Declare a segment and initialize it using InitFromOriginAndDirection method\n    XSegment3d seg;\n    seg.InitFromOriginAndDirection(origin, direction);\n\n    // Add the segment to the viewport\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateLine(seg));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a 2d circle with the center(5, 3, 8) and radius 5 according to its center, radius, and normal vector. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateCircleFromCenterNormalRadius()\n{\n    // Define the center point at the origin.\n    XPoint3d center = XPoint3d::From(5, 3, 8);\n\n    // Define the radius of the circle.\n    double radius = 5;\n\n    // Define the normal vector of the circle (assumes Z-axis as normal).\n    XVec3d normal = XVec3d::UnitZ();\n\n    // Create the circle with the specified center, normal, and radius.\n    XEllipse3d circle = XEllipse3d::FromCenterNormalRadius(center, normal, radius);\n\n    // Add the circle to the scene.\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateArc(circle));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a 2d circle with the center(1, 2, 3) and radius 25 in the XY plane according to its center and radius. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateCircleFromCenterRadiusXY()\n{\n    // Define the center point at the origin.\n    XPoint3d center = XPoint3d::From(1, 2, 3);\n\n    // Define the radius of the circle.\n    double radius = 25;\n\n    // Create the circle with the specified center and radius on the XY plane.\n    XEllipse3d circle = XEllipse3d::FromCenterRadiusXY(center, radius);\n\n    // Add the circle to the scene.\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateArc(circle));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a 2d circle with the center(0, 0, 0) and radius 10. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateCircleFromVectors()\n{\n    // Define the center point.\n    XPoint3d center = XPoint3d::FromZero();\n\n    // Define the vectors of the ellipse at 0 degrees and 90 degrees. When the semi-major axis and semi-minor axis of the ellipse are equal, the ellipse is a circle.\n    XVec3d vector0 = XVec3d::UnitX() * 10;\n    XVec3d vector90 = XVec3d::UnitY() * 10;\n\n    // Set the start angle at 0 and the sweep angle for a full circle (2 * PI radians = 360 degrees).\n    double theta0 = 0;\n    double sweep = 2 * PI;\n\n    // Create the circle using the function to create a curve of ellipse. The function uses the ellipse center and two vectors from center to ellipse vertex to identify the ellipse, and use the start angle and sweep angle to create the curve.\n    XEllipse3d circle = XEllipse3d::FromVectors(center, vector0, vector90, theta0, sweep);\n\n    // Add the circle to the scene.\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateArc(circle));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a 2d circle with the center(0, 0, 0) and radius 50. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateCircleFromPoints()\n{\n    // Define the center point.\n    XPoint3d center = XPoint3d::FromZero();\n\n    // Define the vertex points of the ellipse at 0 degrees and 90 degrees. When the semi-major axis and semi-minor axis of the ellipse are equal, the ellipse is a circle.\n    XPoint3d point0 = XPoint3d::From(50, 0, 0);\n    XPoint3d point90 = XPoint3d::From(0, 50, 0);\n\n    // Set the start angle at 0 and the sweep angle for a full circle (2 * PI radians = 360 degrees).\n    double theta0 = 0;\n    double sweep = 2 * PI;\n\n    // Create the circle using the function to create a curve of ellipse. The function uses the ellipse center and two ellipse vertex on the ellipse to identify the ellipse, and use the start angle and sweep angle to create the curve.\n    XEllipse3d circle = XEllipse3d::FromPoints(center, point0, point90, theta0, sweep);\n\n    // Add the circle to the scene.\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateArc(circle));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a 2d circle with the center(10, 5, 0) and radius 40. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateCircleInitFromPoints()\n{\n    // Define the center point.\n    XPoint3d center = XPoint3d::From(10, 5, 0);\n\n    // Define the vertex points of the ellipse at 0 degrees and 90 degrees. When the semi-major axis and semi-minor axis of the ellipse are equal, the ellipse is a circle.\n    XVec3d point0 = XPoint3d::From(60, 5, 0);\n    XVec3d point90 = XPoint3d::From(10, 55, 0);\n\n    // Set the start angle at 0 and the sweep angle for a full circle (2 * PI radians or 360 degrees).\n    double theta0 = 0;\n    double sweep = 2 * PI;\n\n    // Create the circle using the function to create a curve of ellipse. The function uses the ellipse center and two ellipse vertex on the ellipse to identify the ellipse, and use the start angle and sweep angle to create the curve.\n    XEllipse3d circle;\n    circle.InitFromPoints(center, point0, point90, theta0, sweep);\n\n    // Add the circle to the scene.\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateArc(circle));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a 2d circle with the center(0, 0, 0) and radius 50 with its center, radius, and normal vector. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateCircleInitFromCenterNormalRadius()\n{\n    // Define the center point at the origin.\n    XPoint3d center = XPoint3d::FromZero();\n\n    // Define the radius of the circle.\n    double radius = 50;\n\n    // Define the normal vector of the circle (assumes Z-axis as normal).\n    XVec3d normal = XVec3d::UnitZ();\n\n    // Create the circle with the specified center, normal, and radius.\n    XEllipse3d circle;\n    circle.InitFromCenterNormalRadius(center, normal, radius);\n\n    // Add the circle to the scene.\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateArc(circle));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a 2d circle with the center(0, 0, 0) and radius 50. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateCircleStartTangentNormalRadiusSweep()\n{\n    // Define the start point.\n    XPoint3d start = XPoint3d::From(50, 0, 0);\n\n    // Define the tangent line of the start point on the circle.\n    XVec3d tangent = XVec3d::UnitY();\n\n    // Define the normal vector of the circle.\n    XVec3d normal = XVec3d::UnitZ();\n\n    // Define the radius of the circle.\n    double radius = 50;\n\n    // Define the sweep angle\n    double sweep = 2 * PI;\n\n    // Identify the circle using the defined start point, tangent line, normal vector and radius. Use the start point and sweep angle to create the curve. When the angle is 2 * PI, the curve is a circle.\n    XEllipse3d circle = XEllipse3d::FromStartTangentNormalRadiusSweep(start, tangent, normal, radius, sweep);\n\n    // Add the circle to the scene.\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateArc(circle));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a 2d circle curve. The circle center is (0, 0, 0) and the radius is 50. The circle curve is a half circle. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateCircleFromPointsOnArc()\n{\n    // Define three points on the arc\n    XPoint3d startPoint = XPoint3d::From(-50, 0, 0);\n    XPoint3d midPoint = XPoint3d::From(0, 50, 0);\n    XPoint3d endPoint = XPoint3d::From(50, 0, 0);\n\n    // Create the circle arc using three points on the arc\n    XEllipse3d circle = XEllipse3d::FromPointsOnArc(startPoint, midPoint, endPoint);\n\n    // Add the circle arc to the scene.\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateArc(circle));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create an arbitrary circle arc with its center, start point, and tangent of the endpoint. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateArcFromCenterStartEnd()\n{\n    // Define the center, start, and end points for the arc\n    XPoint3d center = XPoint3d::From(-10, 0, 0);\n    XPoint3d startPoint = XPoint3d::From(-20, 0, 0);\n    XPoint3d endTarget = XPoint3d::UnitX();\n\n    // Create an arc from the center point, starting point, and the tangent of the ending point (the arc whose sweep angle is smaller)\n    XEllipse3d arc = XEllipse3d::FromArcCenterStartEnd(center, startPoint, endTarget);\n\n    // Add the arc to the scene.\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateArc(arc));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "15",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create an ellipse arc when knowing the center, the positions of the point at 0° and 90° of the ellipse, and the start angle and the sweep angle of the arc. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateArcFromVectors()\n{\n    // Define the center point of the ellipse.\n    XPoint3d center = XPoint3d::FromZero();\n\n    // Define the vectors for 0° and 90° points.\n    XVec3d vector0 = XVec3d::UnitX() * 10;\n    XVec3d vector90 = XVec3d::UnitY() * 5;\n\n    // Set the start angle at 0 and the sweep angle for an arc\n    double theta0 = 0;\n    double sweep = PI / 2;\n\n    // Create the ellipse arc using the defined center, vectors and sweep angle.\n    XEllipse3d arc = XEllipse3d::FromVectors(center, vector0, vector90, theta0, sweep);\n\n    // Add the arc to the scene.\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateArc(arc));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "16",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create an arc with its start, middle, and end points. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateArcFromPointsOnArc()\n{\n    // Define three points on the arc\n    XPoint3d startPoint = XPoint3d::From(-5, 0, 0);\n    XPoint3d midPoint = XPoint3d::From(-4, 3, 0);\n    XPoint3d endPoint = XPoint3d::From(-3, 4, 0);\n\n    // Create the arc from three points on the arc\n    XEllipse3d arc = XEllipse3d::FromPointsOnArc(startPoint, midPoint, endPoint);\n\n    // Add the arc to the scene.\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateArc(arc));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "17",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create an epplise arc with center, 0° and 90° points, initial angle and sweep angle. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateArcFromPoints()\n{\n    // Define the center point at the origin.\n    XPoint3d center = XPoint3d::FromZero();\n\n    // Define the points at 0° and 90°.\n    XPoint3d point0 = XPoint3d::From(50, 0, 0);\n    XPoint3d point90 = XPoint3d::From(0, 25, 0);\n\n    // Set the start angle at 0 and the sweep angle for an arc\n    double theta0 = 0;\n    double sweep = PI;\n\n    // Create the arc using the defined points and sweep angle.\n    XEllipse3d circle = XEllipse3d::FromVectors(center, point0, point90, theta0, sweep);\n\n    // Add the arc to the scene.\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateArc(circle));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "18",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create an ellipse arc by initializing the center, the 0° and 90° points, initial angle and sweep angle. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateArcInitFromPoints()\n{\n    // Define the center point at the origin.\n    XPoint3d center = XPoint3d::FromZero();\n\n    // Define the vectors for 0° and 90° assuming unit vectors along the X and Y axes.\n    XVec3d point0 = XPoint3d::From(30, 0, 0);\n    XVec3d point90 = XPoint3d::From(0, 20, 0);\n\n    // Set the start angle at 0 and the sweep angle for an arc.\n    double theta0 = 0;\n    double sweep = 3*PI / 2;\n\n    // Create the arc using the defined points and sweep angle.\n    XEllipse3d arc;\n    arc.InitFromPoints(center, point0, point90, theta0, sweep);\n\n    // Add the arc to the scene.\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateArc(arc));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "19",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create an abitrary arc with its start point, tangent line, normal vector, radius and sweep angle. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateArcStartTangentNormalRadiusSweep()\n{\n    // Define the start point at the origin.\n    XPoint3d start = XPoint3d::From(50, 0, 0);\n\n    // Define the tangent line.\n    XVec3d tangent = XVec3d::UnitY();\n\n    // Define the normal vector of the arc (assumes Z-axis as normal).\n    XVec3d normal = XVec3d::UnitZ();\n\n    // Define the radius of the arc.\n    double radius = 50;\n\n    // Define the sweep angle\n    double sweep = PI;\n\n    // Create the arc using the defined vectors and sweep angle.\n    XEllipse3d arc = XEllipse3d::FromStartTangentNormalRadiusSweep(start, tangent, normal, radius, sweep);\n\n    // Add the arc to the scene.\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateArc(arc));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "20",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create an abitrary ellipse arc with its center, two points, initial angle and sweep angle. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateEllipseArcFromPoints()\n{\n    XPoint3d center = XPoint3d::FromZero();\n    XPoint3d point0 = XPoint3d::From(50, 0, 0);\n    XPoint3d point90 = XPoint3d::From(0, 20, 0);\n    double theta0 = PI / 2;\n    double sweep = PI;\n\n    XEllipse3d arc = XEllipse3d::FromPoints(center, point0, point90, theta0, sweep);\n\n    // Add the ellipse arc to the scene.\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateArc(arc));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "21",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create an abitrary ellipse arc with its parent arc and fractions of start and end. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateEllipseArcFromFractionInterval(XEllipse3d &parentArc)\n{\n    double startFraction = 0.25; // Assuming start from 25% of parent arc.\n    double endFraction = 0.75;   // Assuming end at 75% of parent arc.\n\n    XEllipse3d arc = XEllipse3d::FromFractionInterval(parentArc, startFraction, endFraction);\n\n    // Add the ellipse arc to the scene.\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateArc(arc));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "22",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create an arc with its start, middle, and end points. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateEllipseArcFromPointsOnArc()\n{\n    XPoint3d start = XPoint3d::FromZero();\n    XPoint3d middle = XPoint3d::From(25, 50, 0);\n    XPoint3d end = XPoint3d::From(50, 0, 0);\n\n    XEllipse3d arc = XEllipse3d::FromPointsOnArc(start, middle, end);\n\n    // Add the arc to the scene.\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateArc(arc));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "23",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create an abitrary ellipse arc with its center, two vectors, initial angle and sweep angle. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateEllipseArcFromVectors()\n{\n    XPoint3d center = XPoint3d::FromZero();\n    XVec3d vector0 = XVec3d::From(50, 0, 0);\n    XVec3d vector90 = XVec3d::From(0, 20, 0);\n    double theta0 = PI / 2;\n    double sweep = PI;\n\n    XEllipse3d arc = XEllipse3d::FromVectors(center, vector0, vector90, theta0, sweep);\n\n    // Add the ellipse arc to the scene.\n    CurveSetPtr curve = CurveSet::Create(IBasicCurve::CreateArc(arc));\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "24",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a linestring with a list of xvector<XPoint3d>. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateLineStringWithDirectInitialization()\n{\n    XPoint3d st = XPoint3d::From(0, 20, 0);\n    XPoint3d pt2 = XPoint3d::From(10, 5, 0);\n    XPoint3d pt3 = XPoint3d::From(30, 30, 0);\n    XPoint3d ed = XPoint3d::From(40, 50, 0);\n\n    xvector<XPoint3d> pointList = {st, pt2, pt3, ed};\n    IBasicCurvePtr basicCurve = IBasicCurve::CreateLineString(pointList);\n\n    // Add the curve to the scene.\n    CurveSetPtr curve = CurveSet::Create(basicCurve);\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "25",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a linestring with array of points. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "void CreateLineStringWithPointerToArray()\n{\n    XPoint3d pointsArray[] = {\n        XPoint3d::From(0, 20, 0),\n        XPoint3d::From(10, 5, 0),\n        XPoint3d::From(30, 30, 0),\n        XPoint3d::From(40, 50, 0)};\n\n    size_t numberOfPoints = sizeof(pointsArray) / sizeof(XPoint3d);\n    IBasicCurvePtr basicCurve = IBasicCurve::CreateLineString(pointsArray, numberOfPoints);\n\n    // Add the curve to the scene.\n    CurveSetPtr curve = CurveSet::Create(basicCurve);\n    AddGeometryToScene(curve);\n}"
+      }
+    ]
+  },
+  {
+    "id": "26",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a B-spline curve with points, weights, knots and order. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "ATEC::ATBsplineCurvePtr CreateBsplineCurveWithCustomKnots(bool isPrintPoints)\n{\n    // Define control points.\n    XPoint3d pnt1 = XPoint3d::From(-30, 0, -50);\n    XPoint3d pnt2 = XPoint3d::From(0, 0, 50);\n    XPoint3d pnt3 = XPoint3d::From(30, 0, -50);\n    XPoint3d pnt4 = XPoint3d::From(60, 0, 50);\n    xvector<XPoint3d> controlPoints = {pnt1, pnt2, pnt3, pnt4};\n\n    // Define knot vector - clamped knots for cubic B-spline with 4 control points.\n    xvector<double> knots = {0, 0, 0, 1, 2, 3, 3, 3};\n\n    // Define weights (optional) if rational B-spline.\n    xvector<double> weights = {1, 1, 1, 1};\n\n    int order = (int)(controlPoints.size() - 1);\n\n    // Create the B-spline curve.\n    ATBsplineCurvePtr bsplineCurve =\n        ATBsplineCurve::CreateFromPolesAndOrder(controlPoints,\n                                                &weights, &knots,\n                                                order, false, false);\n\n    if (isPrintPoints)\n    {\n        // Add the curve to the scene.\n        for (int i = 0; i < controlPoints.size(); i++)\n        {\n            AddPointToScene(controlPoints[i], i + 1);\n        }\n    }\n\n    return bsplineCurve;\n}"
+      }
+    ]
+  },
+  {
+    "id": "27",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a B-spline curve with points and order. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "ATEC::ATBsplineCurvePtr CreateBsplineCurveSimple(bool isPrintPoints)\n{\n    // Define control points.\n    XPoint3d pnt1 = XPoint3d::From(-30, 0, -50);\n    XPoint3d pnt2 = XPoint3d::From(0, 0, 50);\n    XPoint3d pnt3 = XPoint3d::From(30, 0, -50);\n    XPoint3d pnt4 = XPoint3d::From(60, 0, 50);\n    xvector<XPoint3d> controlPoints = {pnt1, pnt2, pnt3, pnt4};\n\n    int order = (int)(controlPoints.size() - 1);\n\n    // Create the B-spline curve without weights and knots (auto-generated).\n    ATBsplineCurvePtr bsplineCurve =\n        ATBsplineCurve::CreateFromPolesAndOrder(controlPoints.data(),\n                                                (int)controlPoints.size(),\n                                                order, false);\n\n    if (isPrintPoints)\n    {\n        // Add the curve to the scene.\n        for (int i = 0; i < controlPoints.size(); i++)\n        {\n            AddPointToScene(controlPoints[i], i + 1);\n        }\n    }\n\n    return bsplineCurve;\n}"
+      }
+    ]
+  },
+  {
+    "id": "28",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a B-spline curve with interpolation points and order. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "ATEC::ATBsplineCurvePtr CreateBsplineCurveFromInterpolation(bool isPrintPoints)\n{\n    // Define interpolation points.\n    XPoint3d pnt1 = XPoint3d::From(5, 10, 0);\n    XPoint3d pnt2 = XPoint3d::From(15, 30, 0);\n    XPoint3d pnt3 = XPoint3d::From(25, 20, 0);\n    XPoint3d pnt4 = XPoint3d::From(35, 40, 0);\n    xvector<XPoint3d> interpolationPoints = {pnt1, pnt2, pnt3, pnt4};\n\n    // B-spline order.\n    int order = (int)(interpolationPoints.size() - 1);\n\n    // Create the B-spline curve with Lim fitting.\n    ATBsplineCurvePtr bsplineCurve =\n        ATBsplineCurve::CreateFromInterpolationAtBasisFunctionPeaks(interpolationPoints, order);\n\n    if (isPrintPoints)\n    {\n        // Add the curve to the scene.\n        for (int i = 0; i < interpolationPoints.size(); i++)\n        {\n            AddPointToScene(interpolationPoints[i], i + 1);\n        }\n    }\n\n    return bsplineCurve;\n}"
+      }
+    ]
+  },
+  {
+    "id": "29",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a complex Geometry consist of an arc, a line segment, a B-spline curve a LineString. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "CurveSetPtr GenerateComplexGeometry()\n{\n    // 1. Create an arc\n    XPoint3d startPt = XPoint3d::From(-50, 0, 0);\n    XPoint3d endPt = XPoint3d::From(50, 0, 0);\n    XPoint3d midPt = XPoint3d::From(0, 50, 0);\n    XEllipse3d arc = XEllipse3d::FromPointsOnArc(startPt, midPt, endPt);\n\n    // 2. Create a line segment\n    XPoint3d linePt = endPt + XVec3d::UnitX() * 100;\n    XSegment3d line = XSegment3d::From(endPt, linePt);\n\n    // 3. Create a B-spline curve\n    XPoint3d pt1 = linePt + XVec3d::UnitX() * 50;\n    pt1.y += 50;\n\n    XPoint3d pt2 = pt1 + XVec3d::UnitX() * 50;\n    xvector<XPoint3d> vPts = {linePt, pt1, pt2};\n\n    ATBsplineCurvePtr bSplineCurve = ATBsplineCurve::CreateFromInterpolationAtBasisFunctionPeaks(vPts, 3, 0);\n\n    // 4. Create a LineString\n    XPoint3d pt3 = pt2 - XVec3d::UnitY() * 150;\n    XPoint3d pt4 = pt3 - XVec3d::UnitX() * 300;\n    xvector<XPoint3d> vPts2 = {pt2, pt3, pt4, startPt};\n\n    IBasicCurvePtr lineString = IBasicCurve::CreateLineString(vPts2);\n\n    // 5. Construct CurveSet -- represents complex object\n    CurveSetPtr curve = CurveSet::Create(CurveSet::BOUNDARY_TYPE_Outer);\n    curve->Add(IBasicCurve::CreateArc(arc));\n    curve->Add(IBasicCurve::CreateLine(line));\n    curve->Add(IBasicCurve::CreateBsplineCurve(bSplineCurve));\n    curve->Add(lineString);\n    curve->SetBoundaryType(CurveSet::BOUNDARY_TYPE_Outer);\n\n    // Add the curve to the scene.\n    AddGeometryToScene(curve, 4);\n    return curve;\n}"
+      }
+    ]
+  },
+  {
+    "id": "30",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a complex Geometry with a circle inscribed within an ellipse. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "CurveSetPtr GenerateComplexGeometry()\n{\n    // Create an inscribed circle\n    XPoint3d center = XPoint3d::FromZero();\n    double circleRadius = 20.0;\n    XEllipse3d circle = XEllipse3d::FromCenterRadiusXY(center, circleRadius);\n\n    // Create an enclosing ellipse with the same center, but different radius\n    double ellipseMajorRadius = 40.0;\n    double ellipseMinorRadius = 30.0;\n    XEllipse3d ellipse = XEllipse3d::FromPoints(center, XPoint3d::From(ellipseMajorRadius, 0, 0), XPoint3d::From(0, ellipseMinorRadius, 0), 0, 2 * PI);\n\n    // Assemble complex geometry\n    CurveSetPtr complexGeo = CurveSet::Create(CurveSet::BOUNDARY_TYPE_Outer);\n    complexGeo->Add(IBasicCurve::CreateArc(circle));\n    complexGeo->Add(IBasicCurve::CreateArc(ellipse));\n\n    // Add the complex geometry to the scene\n    AddGeometryToScene(complexGeo);\n\n    return complexGeo;\n}"
+      }
+    ]
+  },
+  {
+    "id": "31",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a complex Geometry Combining LineString Enclosing an Ellipse Arc and Circle. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "CurveSetPtr GenerateComplexGeometry()\n{\n    // This complex geometry encloses a partial ellipse arc within a curvy LineString,\n    // and a full circle arc attached to the close end of the LineString.\n\n    // Create an ellipse arc\n    XPoint3d centerEllipse = XPoint3d::From(-30, -30, 0);\n    double majorRadius = 60.0;\n    double minorRadius = 40.0;\n    double startAngle = PI / 4.0;     // 45 degrees\n    double endAngle = 3.0 * PI / 2.0; // 270 degrees\n    XEllipse3d ellipseArc = XEllipse3d::FromPoints(centerEllipse, XPoint3d::From(majorRadius, 0, 0), XPoint3d::From(0, minorRadius, 0), startAngle, endAngle - startAngle);\n\n    // Create a LineString that partially encloses the ellipse arc\n    XPoint3d lsStart = XPoint3d::From(-90, -40, 0);\n    XPoint3d lsMiddle = XPoint3d::From(-60, 30, 0);\n    XPoint3d lsEnd = XPoint3d::From(0, -10, 0); // End point is set to be the center of circle\n    xvector<XPoint3d> lineStringPoints = {lsStart, lsMiddle, lsEnd};\n    IBasicCurvePtr lineString = IBasicCurve::CreateLineString(lineStringPoints);\n\n    // Create a circle, starting from the end of the LineString\n    double circleRadius = 20.0;\n    XEllipse3d circle = XEllipse3d::FromCenterRadiusXY(lsEnd, circleRadius);\n\n    // Assemble complex geometry\n    CurveSetPtr complexGeo = CurveSet::Create(CurveSet::BOUNDARY_TYPE_Outer);\n    complexGeo->Add(IBasicCurve::CreateArc(ellipseArc));\n    complexGeo->Add(lineString);\n    complexGeo->Add(IBasicCurve::CreateArc(circle));\n\n    // Add the complex geometry to the scene\n    AddGeometryToScene(complexGeo);\n\n    return complexGeo;\n}"
+      }
+    ]
+  },
+  {
+    "id": "32",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a complex Geometry with BSpline Loop and Tangential LineString Closing the Loop. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "CurveSetPtr GenerateComplexGeometry()\n{\n    // This complex geometry creates a loop from a B-spline curve and closes the loop\n    // using a LineString that is tangent to the end points of the B-spline curve.\n\n    // Create a B-spline curve that creates a loop-like shape\n    XPoint3d loopStart = XPoint3d::From(-50, 0, 0);\n    xvector<XPoint3d> loopPoints = {\n        loopStart,\n        loopStart + XVec3d(-20, 40, 0),\n        loopStart + XVec3d(20, 40, 0),\n        loopStart + XVec3d(50, 0, 0)};\n    ATEC::ATBsplineCurvePtr bsplineLoop = ATBsplineCurve::CreateFromPolesAndOrder(loopPoints, 3, true); // Closed loop\n\n    // Calculate the tangent direction at the loop endpoints\n    XVec3d tangentStart = bsplineLoop->Tangent(0.0); // start tangent\n    XVec3d tangentEnd = bsplineLoop->Tangent(1.0);   // end tangent\n\n    // Create a LineString that closes the loop, tangential to B-spline endpoints\n    XPoint3d lineStringStart = loopPoints.front() - tangentStart * 10;\n    XPoint3d lineStringEnd = loopPoints.back() + tangentEnd * 10;\n    xvector<XPoint3d> closeLoopPoints = {lineStringStart, loopPoints.front(), loopPoints.back(), lineStringEnd};\n\n    IBasicCurvePtr closeLoopLineString = IBasicCurve::CreateLineString(closeLoopPoints);\n\n    // Assemble complex geometry\n    CurveSetPtr complexGeo = CurveSet::Create(CurveSet::BOUNDARY_TYPE_Outer);\n    complexGeo->Add(IBasicCurve::CreateBsplineCurve(bsplineLoop));\n    complexGeo->Add(closeLoopLineString);\n\n    // Add the complex geometry to the scene\n    AddGeometryToScene(complexGeo);\n\n    return complexGeo;\n}"
+      }
+    ]
+  },
+  {
+    "id": "33",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a complex geometry with Four circles of the same size intersect and combine together. Their centers are connected to form a square with a side length equal to the radius of the circle. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "CurveSetPtr GenerateComplexGeometry()\n{\n    // Define the side length of the square which is also the radius of the circles\n    double radius = 50.0;\n\n    // Initialize the centers of the four circles\n    XPoint3d center1 = XPoint3d::From(radius / 2.0, radius / 2.0, 0.0);\n    XPoint3d center2 = XPoint3d::From(-radius / 2.0, radius / 2.0, 0.0);\n    XPoint3d center3 = XPoint3d::From(-radius / 2.0, -radius / 2.0, 0.0);\n    XPoint3d center4 = XPoint3d::From(radius / 2.0, -radius / 2.0, 0.0);\n\n    // Define the four circles\n    XEllipse3d circle1 = XEllipse3d::FromCenterNormalRadius(center1, XVec3d::UnitZ();, radius);\n    XEllipse3d circle2 = XEllipse3d::FromCenterNormalRadius(center2, XVec3d::UnitZ(), radius);\n    XEllipse3d circle3 = XEllipse3d::FromCenterNormalRadius(center3, XVec3d::UnitZ(), radius);\n    XEllipse3d circle4 = XEllipse3d::FromCenterNormalRadius(center4, XVec3d::UnitZ(), radius);\n\n    // Assemble complex geometry\n    CurveSetPtr complexGeo = CurveSet::Create(CurveSet::BOUNDARY_TYPE_Outer);\n    complexGeo->Add(IBasicCurve::CreateArc(circle1));\n    complexGeo->Add(IBasicCurve::CreateArc(circle2));\n    complexGeo->Add(IBasicCurve::CreateArc(circle3));\n    complexGeo->Add(IBasicCurve::CreateArc(circle4));\n\n    // Add the complex geometry to the scene\n    AddGeometryToScene(complexGeo);\n\n    return complexGeo;\n}"
+      }
+    ]
+  },
+  {
+    "id": "34",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a complex geometry where a circle is inscribed in an ellipse. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "CurveSetPtr GenerateComplexGeometry()\n{\n    // Define the center point of the geometry.\n    XPoint3d centerPt = XPoint3d::From(0, 0, 0);\n\n    // Ellipse definition with horizontal radius (a) 100 and vertical radius (b) 50\n    double a = 100.0;                         // major axis\n    double b = 50.0;                          // minor axis\n    XVec3d majorAxis = XVec3d::From(a, 0, 0); // Along the x-axis\n    XVec3d minorAxis = XVec3d::From(0, b, 0); // Along the y-axis\n\n    // Create the ellipse with its major and minor axis vectors\n    XEllipse3d ellipse = XEllipse3d::FromVectors(centerPt, majorAxis, minorAxis, 0.0, 2 * PI); // Complete ellipse with a 360-degree sweep\n\n    // Circle definition with radius equal to the ellipse's minor axis\n    double radius = b;                                                    // The radius for the circle is the same as the minor axis of the ellipse\n    XEllipse3d circle = XEllipse3d::FromCenterRadiusXY(centerPt, radius); // Create a circle in the XY plane centered at the same point as the ellipse\n\n    // Assemble complex geometry\n    CurveSetPtr complexGeo = CurveSet::Create(CurveSet::BOUNDARY_TYPE_Outer);\n    complexGeo->Add(IBasicCurve::CreateArc(circle));\n    complexGeo->Add(IBasicCurve::CreateArc(ellipse));\n\n    // Add the complex geometry to the scene\n    AddGeometryToScene(complexGeo);\n\n    return complexGeo;\n}"
+      }
+    ]
+  },
+  {
+    "id": "35",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a ring by initializing outer and inner circle curve. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "CurveSetPtr CreateRingDirectly()\n{\n    // Outer circle parameters\n    XPoint3d centerOuter = XPoint3d::FromZero();\n    double radiusOuter = 100.0;\n\n    // Inner circle parameters\n    XPoint3d centerInner = XPoint3d::FromZero();\n    double radiusInner = 80.0;\n\n    // Create outer circle\n    XEllipse3d outerCircle = XEllipse3d::FromCenterRadiusXY(centerOuter, radiusOuter);\n    IBasicCurvePtr outerCircleCurve = IBasicCurve::CreateArc(outerCircle);\n    CurveSetPtr outerCurveSet = CurveSet::Create(outerCircleCurve, CurveSet::BOUNDARY_TYPE_Outer);\n\n    // Create inner circle\n    XEllipse3d innerCircle = XEllipse3d::FromCenterRadiusXY(centerInner, radiusInner);\n    IBasicCurvePtr innerCircleCurve = IBasicCurve::CreateArc(innerCircle);\n    CurveSetPtr innerCurveSet = CurveSet::Create(innerCircleCurve, CurveSet::BOUNDARY_TYPE_Inner);\n\n    // Assemble ring as a parity region\n    CurveSetPtr ring = CurveSet::Create(CurveSet::BOUNDARY_TYPE_ParityRegion);\n    ring->Add(outerCurveSet);\n    ring->Add(innerCurveSet);\n\n    if (ring.IsValid())\n    {\n        // Add the ring to the scene.\n        AddGeometryToScene(ring);\n    }\n\n    return ring;\n}"
+      }
+    ]
+  },
+  {
+    "id": "36",
+    "conversations": [
+      {
+        "from": "user",
+        "value": "You are a code assistant of the SSDP platform which is an internal tool used to create 3D scenes. In the SSDP platform, write a function to create a ring by initializing outer and inner circle curve. Directly give the code here:"
+      },
+      {
+        "from": "assistant",
+        "value": "CurveSetPtr CreateRingUsingFactories()\n{\n    // Outer circle parameters\n    XPoint3d centerOuter = XPoint3d::FromZero();\n    double radiusOuter = 100.0;\n\n    // Inner circle parameters\n    XPoint3d centerInner = XPoint3d::FromZero();\n    double radiusInner = 80.0;\n\n    // Create outer circle as a disk region\n    CurveSetPtr outerCurveSet = CurveSet::CreateDisk(XEllipse3d::FromCenterRadiusXY(centerOuter, radiusOuter), CurveSet::BOUNDARY_TYPE_Outer);\n\n    // Create inner circle as a disk region\n    CurveSetPtr innerCurveSet = CurveSet::CreateDisk(XEllipse3d::FromCenterRadiusXY(centerInner, radiusInner), CurveSet::BOUNDARY_TYPE_Inner);\n\n    // Assemble ring as a parity region\n    CurveSetPtr ring = CurveSet::AreaParity(*outerCurveSet, *innerCurveSet);\n\n    if (ring.IsValid())\n    {\n        // Add the ring to the scene.\n        AddGeometryToScene(ring);\n    }\n\n    return ring;\n}"
+      }
+    ]
+  }
+]
