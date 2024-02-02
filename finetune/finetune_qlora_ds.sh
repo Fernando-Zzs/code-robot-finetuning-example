@@ -23,14 +23,15 @@ MASTER_ADDR=${MASTER_ADDR:-localhost}
 # The port for communication
 MASTER_PORT=${MASTER_PORT:-6001}
 
-MODEL="Qwen/Qwen-14B-Chat-Int4" # Set the path if you do not want to load from huggingface directly
+MODEL="Qwen/Qwen-7B-Chat-Int4" # Set the path if you do not want to load from huggingface directly
 # ATTENTION: specify the path to your training data, which should be a json file consisting of a list of conversations.
 # See the section for finetuning in README for more information.
-DATA="/home/ec2-user/SageMaker/Qwen/dataset/human_qwen_train_output.json"
+DATA="dataset/human_qwen_train_output.json"
+EVAL_DATA="dataset/human_qwen_valid_output.json"
 
 function usage() {
     echo '
-Usage: bash finetune/finetune_qlora_ds.sh [-m MODEL_PATH] [-d DATA_PATH]
+Usage: bash finetune/finetune_qlora_ds.sh [-m MODEL_PATH] [-d DATA_PATH] [-e EVAL_DATA]
 '
 }
 
@@ -43,6 +44,10 @@ while [[ "$1" != "" ]]; do
         -d | --data )
             shift
             DATA=$1
+            ;;
+        -e | --eval_data )
+            shift
+            EVAL_DATA=$1
             ;;
         -h | --help )
             usage
@@ -65,12 +70,12 @@ DISTRIBUTED_ARGS="
 "
 
 # Remember to use --fp16 instead of --bf16 due to autogptq
-torchrun $DISTRIBUTED_ARGS /home/ec2-user/SageMaker/Qwen/finetune/finetune.py \
+torchrun $DISTRIBUTED_ARGS finetune/finetune.py \
     --model_name_or_path $MODEL \
     --data_path $DATA \
-    --eval_data_path /home/ec2-user/SageMaker/Qwen/dataset/human_qwen_valid_output.json \
+    --eval_data_path $EVAL_DATA \
     --fp16 True \
-    --output_dir /home/ec2-user/SageMaker/Qwen/checkpoints \
+    --output_dir checkpoints \
     --num_train_epochs 50 \
     --per_device_train_batch_size 2 \
     --per_device_eval_batch_size 1 \
